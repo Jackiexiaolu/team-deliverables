@@ -1,0 +1,17 @@
+{
+  "name": "示例配置 - 新闻网站抓取",
+  "url": "https://example.com",
+  "selectors": {
+    "title": "h1",
+    "content": "article.content p",
+    "author": ".author-name",
+    "publish_date": ".publish-date",
+    "tags": ".tags a"
+  },
+  "output": "results.json",
+  "format": "json",
+  "stealth": false,
+  "headers": {
+    "User-Agent": "Mozilla/5.0 (compatible; Scrapling/1.0)"
+  }
+}

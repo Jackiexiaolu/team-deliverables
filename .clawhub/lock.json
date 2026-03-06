@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "find-skills": {
+      "version": "0.1.0",
+      "installedAt": 1772592094028
+    },
+    "tavily-tool": {
+      "version": "0.1.1",
+      "installedAt": 1772594313146
+    },
+    "tavily-search": {
+      "version": "1.0.0",
+      "installedAt": 1772775003633
+    }
+  }
+}
