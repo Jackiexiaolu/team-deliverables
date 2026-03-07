@@ -66,5 +66,51 @@
 
 ---
 
-*最后更新：2026-03-07*
+## 📋 当前项目进展 (TASK-001)
+
+### 项目信息
+- **名称**: 团队管理面板开发
+- **启动时间**: 2026-03-07 10:06
+- **截止时间**: 2026-03-07 18:00
+- **状态**: 🟡 开发中
+
+### 各小弟产出物
+| 小弟 | 产物 | 位置 | 状态 |
+|------|------|------|------|
+| 小策📋 | PRD 文档 | docs/prd/TASK-001-prd.md | ✅ 完成 |
+| 小艺🎨 | 设计稿 | docs/design/TASK-001-design.md | 🟡 设计中 (截止 14:00) |
+| 小码💻 | 代码框架 | deliverables/code/TASK-001/ | 🟡 开发中 (截止 16:00) |
+| 小测🧪 | 测试用例 | deliverables/test/ | ⏳ 待开始 |
+| 小管📊 | 进度报告 | deliverables/review/ | ⏳ 待开始 |
+
+### 数据库设计
+- schema.sql 已完成 (db/schema.sql)
+- 包含 members、tasks、activities 三张表
+
+---
+
+## ⚠️ 重要教训记录
+
+### 飞书文档创建规范 (2026-03-07)
+**问题**: 使用 `feishu_doc` 创建文档时，`action: create` + `content` 参数不会实际写入内容，导致文档空白。
+
+**正确做法**:
+1. 先用 `action: create` 创建空文档
+2. 再用 `action: write` + `doc_token` + `content` 写入内容
+3. 或者直接用 `action: write` 到新文档标题 (如果支持)
+
+**错误示例**:
+```
+feishu_doc action=create title="xxx" content="..."  ❌ 内容不会写入
+```
+
+**正确示例**:
+```
+feishu_doc action=create title="xxx"  # 获取 doc_token
+feishu_doc action=write doc_token="xxx" content="..."  # 写入内容
+```
+
+---
+
+*最后更新：2026-03-07 12:46*
 *记录人：虾管事 🤍*
