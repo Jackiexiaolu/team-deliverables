@@ -363,9 +363,30 @@ const pmoResult = await sessions_spawn({
 小管 → 返回进度报告
 ```
 
-### 步骤 4: 虾管事汇总结果
+### 步骤 4: 小 C 统一提交仓库 🆕
 
-我收集所有小弟的交付物，汇总后汇报给老板：
+**小 C (代码管理员) 负责所有交付物的 Git 提交和远程同步**:
+
+```javascript
+// 调用小 C 提交仓库
+const commitResult = await sessions_spawn({
+  agentId: "xiaoc-git",
+  task: `提交 TASK-003 所有交付物到仓库
+
+要求:
+1. 检查所有交付物是否存在
+2. git add 添加所有文件
+3. git commit -m "TASK-003: 完成任务看板页面开发"
+4. git push 推送到远程仓库
+5. 返回提交结果`,
+  runtime: "subagent",
+  mode: "run"
+});
+```
+
+### 步骤 5: 虾管事汇总结果
+
+我收集所有小弟的交付物和小 C 的提交结果，汇总后汇报给老板：
 
 ```
 【TASK-003 完成汇报】
@@ -385,30 +406,8 @@ const pmoResult = await sessions_spawn({
 📊 小管 (PMO): 进度报告
    📄 reports/TASK-003-progress.md
 
-所有任务已完成，请老板验收！
-```
-
-### 步骤 5: 结果汇总汇报
-
-我收集所有小弟的交付物，整理后直接汇报给老板：
-
-```
-【TASK-003 完成汇报】
-
-✅ 小策 (PM): PRD 文档已完成
-   📄 docs/prd/TASK-003-prd.md
-
-✅ 小艺 (设计): 设计稿已完成
-   📄 docs/design/TASK-003-design.md
-
-✅ 小码 (开发): 代码实现已完成
-   📁 deliverables/code/TASK-003/
-
-✅ 小测 (测试): 测试报告已完成
-   📄 deliverables/test/TASK-003-test.md
-
-📊 小管 (PMO): 进度报告
-   📄 reports/TASK-003-progress.md
+🗃️ 小 C (代码管理员): 已提交仓库
+   🔗 https://github.com/Jackiexiaolu/openclaw-team-deliverables
 
 所有任务已完成，请老板验收！
 ```
